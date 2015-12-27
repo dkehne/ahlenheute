@@ -118,7 +118,7 @@
                 $counter++;
                 echo " <div class=\"col-md-4 portfolio-item\">
             <a href=\"#\">
-                <img id=\"quickwin-open_" . $counter . "\" class=\"img-responsive\" src=\"http://placehold.it/700x400\" alt=\"\"
+                <img id=\"quickwin-open_" . $counter . "\" class=\"img-responsive\" src=" . $row["img_url"] . " alt=\"\"
                 onclick=\"javascript:openOverlay(" . $counter . ")\">
             </a>
             <h3>
