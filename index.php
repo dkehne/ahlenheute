@@ -30,7 +30,21 @@
     </script>
     <script>
         function openOverlay(id) {
-            alert(id);
+            <!--
+            var div = document.createElement("div");
+            div.id = "popup-content_"+id;
+            div.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero velit, dictum eget " +
+                "ligula scelerisque, elementum venenatis purus. Phasellus placerat tempor velit id ultricies. Vivamus sollicitudin, " +
+                "dui non imperdiet maximus, tortor lorem interdum lectus";
+            -->
+
+            document.body.append("<div id='popup-content_" + id + "'  style='display:none; text-align:center'>" +
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero velit, dictum eget " +
+                "ligula scelerisque, elementum venenatis purus. Phasellus placerat tempor velit id ultricies. Vivamus sollicitudin, " +
+                "dui non imperdiet maximus, tortor lorem interdum lectus</div>");
+            $.basicpopup({
+                content: $('#popup-content_" + id  +"').html()
+            });
         }
     </script>
 
@@ -118,7 +132,7 @@
                 $counter++;
                 echo " <div class=\"col-md-4 portfolio-item\">
             <a href=\"#\">
-                <img id=\"quickwin-open_" . $counter . "\" class=\"img-responsive\" src=" . $row["img_url"] . " alt=\"\"
+                <img class=\"img-responsive\" src=" . $row["img_url"] . " alt=\"\"
                 onclick=\"javascript:openOverlay(" . $counter . ")\">
             </a>
             <h3>
