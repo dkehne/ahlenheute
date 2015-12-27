@@ -112,7 +112,7 @@
                 echo "
            <div class=\"col-md-4 portfolio-item\">
             <a href=\"#\">
-                <img class=\"img-responsive\" src=\"http://placehold.it/700x400\" alt=\"\">
+                <img id=\"btn-open\" class=\"img-responsive\" src=\"http://placehold.it/700x400\" alt=\"\">
             </a>
             <h3>
                 <a href=\"#\">". $row["title"]."</a>
@@ -123,6 +123,9 @@
         }
         echo "</div>";
     } ?>
+    <div id="popup-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero velit, dictum eget ligula scelerisque, elementum venenatis purus. Phasellus placerat tempor velit id ultricies. Vivamus sollicitudin, dui non imperdiet maximus, tortor lorem interdum lectus.</p>
+    </div>
 
 
     <!-- Projects Row -->
