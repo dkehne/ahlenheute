@@ -13,6 +13,22 @@
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
+    <!-- Dialog -->
+    <script src="js/jquery.basicPopup.js"></script>
+    <script src="js/scripts.js"></script>
+    <link href="css/basicPopup.css" rel="stylesheet">
+    <link href="css/basicPopupDefault.css" rel="stylesheet">
+    <style>
+        #popup-content { display:none; text-align:center}
+    </style>
+    <script>
+        $('#btn-open').click(function(){
+            $.basicpopup({
+                content: $('#popup-content').html()
+            });
+        });
+    </script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +41,9 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
 
+    </script>
 </head>
 
 <body>
@@ -33,7 +51,7 @@
     $.getScript('//cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js', function () {
         $('#main .img-responsive').lazyload({});
     });</script>
-<?php include("php/connector.php"); ?>
+<?php// include("php/connector.php"); ?>
 
 
 <!-- Navigation -->
@@ -84,66 +102,66 @@
 
    <?php if ($result->num_rows > 0) {
     // output data of each row
-       echo "<div class=\"row\">";
     while($row = $result->fetch_assoc()) {
-        if ($row%3==0){
-            echo "</div>";
-            echo "<div class=\"row\">";
-        }
-        if ($row["active"]==1){
-        echo "
-           <div class=\"col-md-4 portfolio-item\">
-            <a href=\"#\">
-                <img class=\"img-responsive\" src=\"http://placehold.it/700x400\" alt=\"\">
+    echo "id: " . $row["title"]. " - Name: " . $row["active"]. " " . $row["description"]. "<br>";
+    }
+    } else {
+    echo "0 results";
+    } ?>
+    <!-- Projects Row -->
+    <div class="row">
+        <div class="col-md-4 portfolio-item">
+            <!-- Overlay Div -->
+            <!--
+            <div id="popup_quickwin">
+                <div id="title">
+                </div>
+                <div id="Bild">
+                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                </div>
+                <div id="Maps">
+                </div>
+                <div id="Beschreibung">
+                </div>
+                <div id="Zusatz">
+                </div>
+            </div>
+            -->
+            <div id="popup-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero velit, dictum eget ligula scelerisque, elementum venenatis purus. Phasellus placerat tempor velit id ultricies. Vivamus sollicitudin, dui non imperdiet maximus, tortor lorem interdum lectus.</p>
+            </div>
+
+            <img id="btn-open" class="img-responsive" src="http://placehold.it/700x400" alt="">
+            <h3>
+                <a href="#">Project Name</a>
+            </h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
+                urna varius vitae.</p>
+        </div>
+        <div class="col-md-4 portfolio-item">
+            <a href="#">
+                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
             </a>
             <h3>
-                <a href=\"#\">". $row["title"]."</a>
+                <a href="#">Project Name</a>
             </h3>
-            <p> ".$row["description"]." </p>
-        </div>";
-        }
-    }
-       echo "</div>";
-    } ?>
-
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
+                urna varius vitae.</p>
+        </div>
+        <div class="col-md-4 portfolio-item">
+            <a href="#">
+                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+            </a>
+            <h3>
+                <a href="#">Project Name</a>
+            </h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
+                urna varius vitae.</p>
+        </div>
+    </div>
+    <!-- /.row -->
 
     <!-- Projects Row -->
-    <!--  <div class="row">
-          <div class="col-md-4 portfolio-item">
-              <form method="post" action="quickwin.php">
-                  <input type='hidden' name='qw_id' value='1'>
-                  <input type="image" class="img-responsive" src="http://placehold.it/700x400" alt="Submit" />
-              </form>
-              <h3>
-                  <a href="#">Project Name</a>
-              </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
-                  urna varius vitae.</p>
-          </div>
-          <div class="col-md-4 portfolio-item">
-              <a href="#">
-                  <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-              </a>
-              <h3>
-                  <a href="#">Project Name</a>
-              </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
-                  urna varius vitae.</p>
-          </div>
-          <div class="col-md-4 portfolio-item">
-              <a href="#">
-                  <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-              </a>
-              <h3>
-                  <a href="#">Project Name</a>
-              </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
-                  urna varius vitae.</p>
-          </div>
-      </div> -->
-      <!-- /.row -->
-        <!-- Projects Row
-        <!--
     <div class="row">
         <div class="col-md-4 portfolio-item">
             <a href="#">
@@ -175,42 +193,42 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
                 urna varius vitae.</p>
         </div>
-    </div> -->
+    </div>
 
     <!-- Projects Row -->
-    <!--  <div class="row">
-          <div class="col-md-4 portfolio-item">
-              <a href="#">
-                  <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-              </a>
-              <h3>
-                  <a href="#">Project Name</a>
-              </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
-                  urna varius vitae.</p>
-          </div>
-          <div class="col-md-4 portfolio-item">
-              <a href="#">
-                  <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-              </a>
-              <h3>
-                  <a href="#">Project Name</a>
-              </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
-                  urna varius vitae.</p>
-          </div>
-          <div class="col-md-4 portfolio-item">
-              <a href="#">
-                  <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-              </a>
-              <h3>
-                  <a href="#">Project Name</a>
-              </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
-                  urna varius vitae.</p>
-          </div>
-      </div>-->
-      <!-- /.row -->
+    <div class="row">
+        <div class="col-md-4 portfolio-item">
+            <a href="#">
+                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+            </a>
+            <h3>
+                <a href="#">Project Name</a>
+            </h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
+                urna varius vitae.</p>
+        </div>
+        <div class="col-md-4 portfolio-item">
+            <a href="#">
+                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+            </a>
+            <h3>
+                <a href="#">Project Name</a>
+            </h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
+                urna varius vitae.</p>
+        </div>
+        <div class="col-md-4 portfolio-item">
+            <a href="#">
+                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+            </a>
+            <h3>
+                <a href="#">Project Name</a>
+            </h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
+                urna varius vitae.</p>
+        </div>
+    </div>
+    <!-- /.row -->
 
     <hr>
 
@@ -219,7 +237,7 @@
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy; Ahlen Heute 2016</p>
+                <p>Copyright &copy; Your Website 2014</p>
             </div>
         </div>
         <!-- /.row -->
