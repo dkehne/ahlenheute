@@ -19,7 +19,7 @@
     <link href="css/basicPopup.css" rel="stylesheet">
     <link href="css/basicPopupDefault.css" rel="stylesheet">
     <style>
-        #popup-content_ { display:none; text-align:center}
+        #popup-content { display:none; text-align:center}
     </style>
     <script>
         $('#btn-open').click(function(){
@@ -27,6 +27,11 @@
                 content: $('#popup-content').html()
             });
         });
+    </script>
+    <script>
+        function openOverlay(id) {
+            alert(id);
+        }
     </script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -113,7 +118,8 @@
                 $counter++;
                 echo " <div class=\"col-md-4 portfolio-item\">
             <a href=\"#\">
-                <img id=\"btn-open_" . $counter . "\" class=\"img-responsive\" src=\"http://placehold.it/700x400\" alt=\"\">
+                <img id=\"quickwin-open_" . $counter . "\" class=\"img-responsive\" src=\"http://placehold.it/700x400\" alt=\"\"
+                onclick=\"javascript:openOverlay(" . $counter . ")\">
             </a>
             <h3>
                 <a href=\"#\">" . $row["title"] . "</a>
