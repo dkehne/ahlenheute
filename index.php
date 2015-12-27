@@ -18,6 +18,17 @@
     <script src="js/scripts.js"></script>
     <link href="css/basicPopup.css" rel="stylesheet">
     <link href="css/basicPopupDefault.css" rel="stylesheet">
+    <style>
+        #popup-content_ { display:none; text-align:center}
+    </style>
+    <script>
+        $('#btn-open').click(function(){
+            $.basicpopup({
+                content: $('#popup-content').html()
+            });
+        });
+    </script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
